@@ -70,5 +70,3 @@ Create a pull request with a clear description of what you’ve done.
 
 
 
-
-Zencart an consumer electronics shopping store for all customer needs
