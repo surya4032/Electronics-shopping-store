@@ -12,7 +12,7 @@ To install and set up the project on your local machine, follow these steps:
    ```bash
    git clone https://github.com/surya4032/Electronics-shopping-store
 
-Navigate to the project directory:
+## Navigate to the project directory:
 
 bash
 Copy code
@@ -27,7 +27,7 @@ bash
 Copy code
 python -m venv virt
 
-Activate the virtual environment:
+## Activate the virtual environment:
 
 For Linux/Mac:
 bash
@@ -37,21 +37,24 @@ For Windows:
 bash
 virt\Scripts\activate
 Install dependencies:
-
 bash
-
 pip install -r requirements.txt
-Usage
+
+# Usage
 To use the project, follow these steps:
 
 Activate the virtual environment (if not already activated).
 
 Run the project:
+*check whether you are in the project directory
 bash
-python main.py
-Replace main.py with the appropriate script or entry point for your project.
+run the follweing command 'cd mysite' in the terminal
+##To start the Django server,
+run 'python manage.py' command in the terminal
 
-Contributing
+
+
+#Contribution
 We welcome contributions! If you’d like to contribute to this project, please follow these steps:
 
 Fork the repository.
