@@ -20,10 +20,17 @@ def create_razorpay_order(request, order_id):
 
     if request.method == "POST":
         # Handling Address Selection
-        if "address_id" in request.POST:
+        adress_id= request.POST.get('address_id')
+        print(adress_id)
+        
+        if "select_address" in request.POST:
             selected_address = get_object_or_404(Address, id=request.POST["address_id"], user=request.user)
+            # order = Order.objects.get(user=request.user, status="Pending")
             order.address = selected_address
+            
             order.save()
+            
+
         
         # Handling Add Address
         elif "add_address" in request.POST:
@@ -92,6 +99,8 @@ def payment_success(request):
         order.status = "COMPLETED"
         order.save()
 
+        
+
         # Creating Payment record
         Payment.objects.create(
             order=order,
@@ -100,8 +109,16 @@ def payment_success(request):
             razorpay_signature=razorpay_signature,
             status="COMPLETED",
         )
+        return render(request,"success.html",{"order":order})
+        
 
-        return render(request, "success.html", {"order": order})
+    
+
+       
 
     except razorpay.errors.SignatureVerificationError:
         return render(request, "failure.html", {"error": "Payment verification failed!"})
+    # except Order.DoesNotExist:
+    #     return render(request, "failure.html", {"error": "Order not found!"})
+    # except Exception as e:
+    #     return render(request, "failure.html", {"error": f"An unexpected error occurred: {str(e)}"})

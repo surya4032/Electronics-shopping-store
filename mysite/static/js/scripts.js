@@ -1,4 +1,9 @@
+
+
+
+
 function updateCart(actionUrl, cartItemId, isAdd, csrf_token) {
+    
     fetch(actionUrl, {
         method: 'POST',
         headers: {
@@ -26,6 +31,7 @@ function updateCart(actionUrl, cartItemId, isAdd, csrf_token) {
         overallTotalElement.textContent = `${data.overall_total.toFixed(1)}`;
     })
     .catch(error => console.error('Error:', error));
+    
 }
      
     

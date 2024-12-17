@@ -110,8 +110,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
 
+TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
 
 USE_TZ = True
@@ -158,4 +158,4 @@ EMAIL_HOST = 'smtp.gmail.com'  # Use your email provider's SMTP host
 EMAIL_PORT = 25  # Typically 587 for TLS, or 465 for SSL
 EMAIL_USE_TLS = True  # For security (use SSL if using 465 port)
 EMAIL_HOST_USER = 'chandraraotummala2@gmail.com'  # Your email address
-EMAIL_HOST_PASSWORD = 'Amma@1983'
+EMAIL_HOST_PASSWORD = 'aefz hurc owwg pnqc'

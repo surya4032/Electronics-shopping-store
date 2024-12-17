@@ -1,0 +1,19 @@
+<p class="text-center">Dear {{ user.username }}, Please make the payment for your order.</p>
+    <div class="order-details text-center">
+        <p><strong>Total Amount:</strong> ₹{{ order.total_amount }}</p>
+    </div>
+    <form id="payment-form" method="post" action="{% url 'payment:payment_success' %}">
+        <script src="https://checkout.razorpay.com/v1/checkout.js"
+                data-key="{{ key_id }}"
+                data-amount="{{ razorpay_order.amount }}"
+                data-currency="{{ razorpay_order.currency }}"
+                data-order_id="{{ razorpay_order.id }}"
+                data-buttontext="Pay Now"
+                data-name="My Shopping Site"
+                data-description="Test transaction"
+                data-theme.color="#F37254">
+        </script>
+    
+        <input type="hidden" name="razorpay_order_id" value="{{ razorpay_order.id }}">
+        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    </form>

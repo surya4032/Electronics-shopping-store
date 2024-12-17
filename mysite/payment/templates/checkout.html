@@ -54,33 +54,56 @@
             </div>
 
              <h4>Select Address</h4>
-            <form method="post" class="mb-4">
+            <form method="post" class="mb-4" >
                 {% csrf_token %}
                 
                 <!-- If addresses are available, allow user to select one -->
-                {% if addresses %}
+                {% if addresses %}                         
                     {% for address in addresses %}
                         <div class="form-check address-option">
                             <input class="form-check-input" type="radio" name="address_id" value="{{ address.id }}" id="address{{ address.id }}" {% if order.address.id == address.id %}checked{% endif %}>
                             <label class="form-check-label" for="address{{ address.id }}">
                                 {{ address.address_line1 }}, {{ address.city }}, {{ address.state }} - {{ address.zip_code }}
-                            </label>
+                            </label> 
                         </div>
                     {% endfor %}
                 {% else %}
                     <p>No addresses found. Please add an address below.</p>
                 {% endif %}
                 
+                
+                <button type="submit" class="btn btn-success w-100 mt-3" name="select_address">Select Address and Proceed</button> 
+            </form>  
+            <form method="POST" class="mb-4">
+                {% csrf_token %}
                 <h4>Or Add a New Address</h4>
                 <div class="mb-3">
                     {{ address_form.as_p }}
                 </div>
                 
                 <button type="submit" class="btn btn-primary w-100" name="add_address">Add Address</button>
-                <button type="submit" class="btn btn-success w-100 mt-3" name="select_address">Select Address and Proceed</button>
-            </form> 
-
+            </form>
             
+                
+                
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="order-details text-center">
+                    <p><strong>Total Amount:</strong> ₹{{ order.total_amount }}</p>
+                </div>
+                {%  if order.address %}
                 <form id="payment-form" method="post" action="{% url 'payment:payment_success' %}">
                     <script src="https://checkout.razorpay.com/v1/checkout.js"
                             data-key="{{ key_id }}"
@@ -96,6 +119,7 @@
                     <input type="hidden" name="razorpay_order_id" value="{{ razorpay_order.id }}">
                     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
                 </form>
+                {% endif %}
             
         </div>
     </div>

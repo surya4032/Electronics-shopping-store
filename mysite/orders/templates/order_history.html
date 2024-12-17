@@ -22,7 +22,7 @@
                         <div>₹{{ order.total_amount }}</div>
                     </div>
                     <div >
-                        <strong>Order #{{ order.id }}</strong>
+                        {% comment %} <strong>Order #{{ order.id }}</strong> {% endcomment %}
                         {% if order.status == 'PENDING'%}
                         <p><strong>Status:</strong> {{ order.status }}</p>
                         <a class="btn btn-primary" href ="{% url 'payment:create_razorpay_order' order.id %}"> Complete payment</a>
