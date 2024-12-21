@@ -16,6 +16,7 @@ class Address(models.Model):
 
     def __str__(self):
         return f"{self.address_line1}, {self.city}, {self.state}"
+    
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

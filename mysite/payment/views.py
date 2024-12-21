@@ -34,8 +34,9 @@ def create_razorpay_order(request, order_id):
         
         # Handling Add Address
         elif "add_address" in request.POST:
+            
             address_form = AddressForm(request.POST)
-            if address_form.is_valid():
+            if address_form.is_valid() :
                 new_address = address_form.save(commit=False)
                 new_address.user = request.user
                 new_address.save()
