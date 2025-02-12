@@ -39,10 +39,10 @@ Cart
                             <div class="cart-item-quantity" >
                                 
                                 <button 
-                                id="decrement-{{ item.id }}" onclick="updateCart('{% url 'Cart:remove_quantity' item.id %}', {{ item.id }}, false, '{{ csrf_token }}')">-</button>
+                                 onclick="updateCart('{% url 'Cart:remove_quantity' item.id %}', {{ item.id }}, false, '{{ csrf_token }}')">-</button>
                                 <span id="quantity-{{ item.id }}">{{ item.quantity }}</span>
                                 <button 
-                                    id="increment-{{ item.id }}" 
+                                     
                                     onclick="updateCart('{% url 'Cart:add_quantity' item.id %}', {{ item.id }}, true, '{{ csrf_token }}')">+
                                 </button>
     
