@@ -12,7 +12,7 @@ Cart
         
         <div class =" cart-page">
             {% for item in cart_items %}
-              <div class="cart">
+              <div class="cart" id="cart-item-{{ item.id }}">
                   <div class="sub-div">
                       <div class="col1">
                           <div class="image">
@@ -23,26 +23,13 @@ Cart
                           </div>
     
     
-    
-    
-    
-    
-    
-                          
-    
-    
-    
-    
-    
-    
-    
-                            <div class="cart-item-quantity" >
+                          <div class="cart-item-quantity" >
                                 
                                 <button 
-                                id="decrement-{{ item.id }}" onclick="updateCart('{% url 'Cart:remove_quantity' item.id %}', {{ item.id }}, false, '{{ csrf_token }}')">-</button>
+                                 onclick="updateCart('{% url 'Cart:remove_quantity' item.id %}', {{ item.id }}, false, '{{ csrf_token }}')">-</button>
                                 <span id="quantity-{{ item.id }}">{{ item.quantity }}</span>
                                 <button 
-                                    id="increment-{{ item.id }}" 
+                                     
                                     onclick="updateCart('{% url 'Cart:add_quantity' item.id %}', {{ item.id }}, true, '{{ csrf_token }}')">+
                                 </button>
     
@@ -79,14 +66,10 @@ Cart
         </div>
           
           
-              
-          
-          
-        
-        
+
     
         {% if cart_items %}
-        <div class="checkout">
+        <div class="checkout" >
             <p><strong>Total Amount : Rs.<span id="overall-total">{{ total_price }}</span></strong></p>
             <form action="{% url 'orders:create_order' %}" method="post" >
                 {% csrf_token %}
@@ -110,4 +93,3 @@ Cart
 
 
 {% endblock %}
-
