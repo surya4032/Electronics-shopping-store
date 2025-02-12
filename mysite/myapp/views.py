@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from django.template import loader #loader module helps load html templates
 from . models import Product
 from django.views.generic import ListView,CreateView,UpdateView,DeleteView
@@ -31,6 +31,7 @@ def product_details(request,id):
     }
     template = loader.get_template('prod_details.html')
     return HttpResponse(template.render(context,request))
+
 class ProductList(ListView):
     # inheritance listview class from django
     model=Product

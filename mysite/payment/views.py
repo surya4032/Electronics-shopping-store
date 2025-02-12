@@ -21,7 +21,7 @@ def create_razorpay_order(request, order_id):
     if request.method == "POST":
         # Handling Address Selection
         adress_id= request.POST.get('address_id')
-        print(adress_id)
+        
         
         if "select_address" in request.POST:
             selected_address = get_object_or_404(Address, id=request.POST["address_id"], user=request.user)
@@ -72,7 +72,7 @@ def create_razorpay_order(request, order_id):
         }
 
         return render(request, "checkout.html", context)
-
+                                                                         
     return render(request, "checkout.html", {
         "order": order,
         "addresses": addresses,

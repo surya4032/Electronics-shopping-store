@@ -1,4 +1,6 @@
 <p class="text-center">Dear {{ user.username }}, Please make the payment for your order.</p>
+
+
     <div class="order-details text-center">
         <p><strong>Total Amount:</strong> ₹{{ order.total_amount }}</p>
     </div>
@@ -13,7 +15,17 @@
                 data-description="Test transaction"
                 data-theme.color="#F37254">
         </script>
-    
+        
         <input type="hidden" name="razorpay_order_id" value="{{ razorpay_order.id }}">
         <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
     </form>
+
+
+
+
+
+
+
+
+
+

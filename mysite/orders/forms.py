@@ -14,9 +14,10 @@ class AddressForm(forms.ModelForm):
             'required':True,
             'pattern': '[0-9]{6}',
             'title': 'PIN must be a 6-digit number'}),
-
+            
             
             "country": forms.TextInput(attrs={"class": "form-control",'required':True}),
+            # "country": forms.Select(attrs={"class": "form-control",'required':True}),
         }
     # def clean_pin(self):
     #     pin = self.cleaned_data.get('pin')

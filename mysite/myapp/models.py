@@ -12,4 +12,4 @@ class Product(models.Model):
     pic= models.ImageField(upload_to="products/",null=True)
     def __str__self(self):
         return self.name
-    
+        qaz

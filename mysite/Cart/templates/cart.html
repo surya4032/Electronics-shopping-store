@@ -28,19 +28,7 @@ Cart
     
     
     
-                          {% comment %} {% if item.quantity == 1 %}
-                            <button 
-                                 
-                                disabled>-
-                            </button>
-                          {% else %}
-                            <button 
-                                onclick="updateCart('{% url 'Cart:remove_quantity' item.id %}', {{ item.id }}, false, '{{ csrf_token }}')">-
-                            </button>
-                            {% endif %}
-                            <span id="quantity-{{ item.id }}">{{ item.quantity }}</span>
-                            <button 
-                            onclick="updateCart('{% url 'Cart:add_quantity' item.id %}', {{ item.id }}, true, '{{ csrf_token }}')">+</button> {% endcomment %}
+                          
     
     
     
@@ -60,9 +48,7 @@ Cart
     
                                
                                 
-                                {% comment %} <button onclick="updateCart('{% url 'Cart:remove_quantity' item.id %}', {{ item.id }} , false, '{{ csrf_token }}')"  >-</button>
-                                <span id="quantity-{{ item.id }}">{{ item.quantity }}</span>
-                                <button onclick="updateCart('{% url 'Cart:add_quantity' item.id %}', {{ item.id }}, true, '{{ csrf_token }}')">+</button> {% endcomment %}
+                            
                               
                             </div> 
                         </div>

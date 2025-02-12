@@ -7,9 +7,11 @@ urlpatterns= [
     path('about',views.about ,name="aboutpage"),
     path('product',views.AddProduct.as_view(),name="productpage"),
     path('products',views.ProductList.as_view(),name="products"),
+    
     path('prod_details/<int:id>' ,views.product_details , name ="p_details"),
     #int:id -path converter.
     path('editprod/<int:pk>',views.EditProduct.as_view(),name='edit_Prod'),
     path('Deleteprod/<int:pk>',views.DelProduct.as_view(),name ='delprod'),
     path('search/',views.SearchView,name='search')
 ]
+  
