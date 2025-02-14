@@ -57,8 +57,8 @@ To run this project, you will need to set up the following environment variables
 SECRET_KEY=your_secret_key
 RAZORPAY_KEY_ID=your_razorpay_key_id
 RAZORPAY_KEY_SECRET=your_razorpay_key_secret
-EMAIL_HOST_USER=your_email@example.com
-EMAIL_HOST_PASSWORD=your_email_password
+EMAIL_HOST_USER=your_email@example.com  # Website email address
+EMAIL_HOST_PASSWORD=your_email_password  # Email password
 ```
 
 ### Steps to Obtain Environment Variables
@@ -79,7 +79,7 @@ run the following command 'cd mysite' in the terminal
 ```
 ## To start the Django server,
 ```bash
-run 'python manage.py' command in the terminal
+run 'python manage.py' runserver command in the terminal
 ```
 
 # Contribution
