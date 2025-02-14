@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l*p7n_uo1sh@+@7491h+(_se!d@t3k=6j&@v3h_%gq##0v0=ic'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -145,9 +146,9 @@ LOGIN_REDIRECT_URL = 'homepage'
 LOGOUT_REDIRECT_URL = 'homepage'
 
 
-RAZORPAY_KEY_ID = 'rzp_test_LxsCY8mLl9Siq1'
+RAZORPAY_KEY_ID = config('RAZORPAY_KEY_ID')
 
-RAZORPAY_KEY_SECRET = 'fuaohSMmHnnzqdzFYvUqdIiQ'
+RAZORPAY_KEY_SECRET = config('RAZORPAY_KEY_SECRET')
 
 
 
@@ -157,5 +158,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # Use your email provider's SMTP host
 EMAIL_PORT = 25  # Typically 587 for TLS, or 465 for SSL
 EMAIL_USE_TLS = True  # For security (use SSL if using 465 port)
-EMAIL_HOST_USER = 'chandraraotummala2@gmail.com'  # Your email address
-EMAIL_HOST_PASSWORD = 'aefz hurc owwg pnqc'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')  # Your email address
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  # Your email password

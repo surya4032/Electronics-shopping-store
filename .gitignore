@@ -8,3 +8,7 @@ virt/
 # Ignore compiled Python files
 *.pyc
 __pycache__/
+
+
+# Ignore environment files
+.env
