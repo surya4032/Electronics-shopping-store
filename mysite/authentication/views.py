@@ -4,7 +4,6 @@ from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm 
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetConfirmView, PasswordResetDoneView, PasswordResetCompleteView
-from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import ProfileForm
@@ -34,6 +33,7 @@ class CustomPasswordResetCompleteView(PasswordResetCompleteView):
 
 
 @login_required
+
 def profile_view(request):
     # Try to get the user's profile, or create one if it doesn't exist
     profile, created = UserProfile.objects.get_or_create(user=request.user)
